@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "conio.h"
+//#include "conio.h"
 
 int  i, j;
 float peso, diametro, comprimento, usadojumbo;
@@ -27,7 +27,7 @@ main(){
        }
        
        
-      getch(); 
+     // getch(); 
        
 }       
 
