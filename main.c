@@ -3,7 +3,14 @@
 
 int  i, j;
 float peso, diametro, comprimento, usadojumbo;
-float comprimentojumbo=2450, pesojumbo=5000, diametrojumbo=1600, pesopormetro=0.61;
+int comprimentojumbo=2450, pesojumbo=5000, diametrojumbo=1600; 
+
+
+float pesopormetro=(125.0/98.0); // O peso por metro foi calculado pelos dados da bobina jumbo.
+
+// pesopormetro = pesojumbo / ( comprimentojumbo * ( diametrojumbo / 1000 ) ).
+
+// Para o compilar entender que a divisao resulta um float os numeros que estam sendo divididos tem que ter .0
 
 float pedido[3][50] = {0};
 
@@ -26,6 +33,7 @@ main(){
             
        }
        
+       printf("\n\n");
        
      // getch(); 
        
@@ -34,26 +42,31 @@ main(){
 int lerdados(int pedidos){
       
       for(i=0; i<pedidos; i++){
-               printf("\nDigite o peso do pedido %d: ", i);
+               printf("\nDigite o diametro do pedido %d: ", i);
                scanf("%f", &pedido[1][i]);
                
-               printf("\nDigite a altura do pedido %d: ", i);
-               scanf("%f", &pedido[2][i]);
-               
                printf("\nDigite o comprimento do pedido %d: ", i);
-               scanf("%f", &pedido[3][i]);
+               scanf("%f", &pedido[2][i]);
+	       
+	       //A formula eh peso = comprimento * (diametro / 1000) * pesopormetro
+	       
+	       pedido[3][i]= pedido[2][i] * (pedido[1][i] / 1000 ) * pesopormetro;
+               
+               printf("\nO peso do pedido %d eh %.2f ", i, pedido[3][i]);
+
       }
       
       
 }
 
 int imprimirdados(int pedidos){
+  
       
-      printf("\n\nPEDIDOS     PESO       ALTURA     COMPRIMENTO");
+      printf("\n\nPEDIDOS         DIAMETRO           COMPRIMENTO            PESO");
       
       for(i=0; i<pedidos; i++){
 
-             printf("\n   %d        %.2f        %.2f        %.2f ", i, pedido[1][i], pedido[2][i], pedido[3][i]);              
+             printf("\n   %d           %.2f             %.2f                %.2f ", i, pedido[1][i], pedido[2][i], pedido[3][i]);              
                
                
       }
