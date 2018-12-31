@@ -145,3 +145,4 @@ int encontrarpedidosequencia(int pedidos, int bobinajumbo, int npedido){
   }
   
 }
+    
