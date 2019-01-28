@@ -8,6 +8,4 @@ func main() {
 	bigNumero := 10000000000000
 	fmt.Println("Numero: ", bigNumero)
 	fmt.Println("Endereco memoria: ", &bigNumero)
-
 }
-
